@@ -1,0 +1,70 @@
+\documentclass{book}
+
+
+%========基本必备的宏包========%
+
+\usepackage{geometry}
+\usepackage{ctex}
+\usepackage{setspace} % 加载 setspace 宏包，用于设置行间距
+
+
+% 定义 comment 环境
+\newenvironment{comments}
+{%
+    \hangindent=1em % 设置缩进
+    \leftskip = 1em % 左侧缩进
+    \par\vspace{0.3cm} % 段落换行并添加垂直间距
+    \fontsize{11}{12}
+}{%
+    \par % 段落换行
+}
+
+% 定义 yulu 环境
+\newenvironment{yulu}
+{%
+    \setlength{\parindent}{0pt} % 在 yulu 环境中取消首行缩进
+    \setstretch{1.2} % 设置行间距为 1.2 倍
+    \ignorespaces % 忽略环境开始处的空格
+    \fontsize{12}{14}
+}{%
+    \par\bigskip % 环境结束后添加较大的垂直间距
+}
+
+
+\title{幽梦影}
+\author{张潮}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\chapter*{前言}
+《幽梦影》是清代文学家张潮所著的一部随笔集。书中内容涉及广泛，涵盖了文学、艺术、人生哲理等多个方面。
+
+\chapter{正文}
+
+\begin{yulu}
+
+读经宜冬，其神专也；读史宜夏，其时久也；读诸子宜秋，其致别也；读诸集宜春，其机畅也。
+
+\begin{comments}
+曹秋岳曰：“可想见其南面百城时。”
+
+庞笔奴曰：“读《幽梦影》则春、夏、秋、冬，无时不宜。”
+\end{comments}
+\end{yulu}
+
+\begin{yulu}
+
+经传宜独坐读；史鉴宜与友共读。
+
+\begin{comments}
+孙恺似曰：“深得此中真趣，固难为不知者道。”  
+
+王景州曰：“如无好友，即红友亦可。”
+\end{comments}
+
+\end{yulu}
+
+\end{document}
