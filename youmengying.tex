@@ -3,10 +3,37 @@
 
 %========基本必备的宏包========%
 
-\usepackage{geometry}
-\usepackage{ctex}
-\usepackage{setspace} % 加载 setspace 宏包，用于设置行间距
+% \usepackage{geometry}
 
+
+%=========页面设置=========%
+\usepackage[a4paper, %a4paper size 297:210 mm
+  bindingoffset=10mm,%裝訂線
+  top=35mm,  %上邊距 包括頁眉
+  bottom=30mm,%下邊距 包括頁腳
+  inner=10mm,  %左邊距or inner
+  outer=10mm,  %右邊距or  outer
+  headheight=10mm,%頁眉
+  headsep=15mm,%
+  footskip=15mm,%
+  marginparsep=0pt, %旁註與正文間距
+  marginparwidth=0em,includemp=true% 旁註寬度計入width%旁註寬度
+  ]{geometry}
+
+
+\usepackage[UTF8, heading=true, scheme=chinese]{ctex}
+\usepackage{setspace} % 加载 setspace 宏包，用于设置行间距
+\usepackage{hyperref}
+
+
+
+\hypersetup{
+    colorlinks=true, % 使用彩色链接
+    linkcolor=blue,  % 链接颜色为蓝色
+    citecolor=green, % 引用颜色为绿色
+    filecolor=magenta, % 文件链接颜色为洋红色
+    urlcolor=cyan % 网址链接颜色为青色
+}
 
 % 定义 comment 环境
 \newenvironment{comments}
@@ -20,8 +47,10 @@
 }
 
 % 定义 yulu 环境
-\newenvironment{yulu}
+\newenvironment{yulu}[1]
 {%
+    \phantomsection
+    \addcontentsline{toc}{section}{#1} % 将参数添加到目录，设置为子节级别
     \setlength{\parindent}{0pt} % 在 yulu 环境中取消首行缩进
     \setstretch{1.2} % 设置行间距为 1.2 倍
     \ignorespaces % 忽略环境开始处的空格
@@ -37,34 +66,18 @@
 
 \begin{document}
 
+
 \maketitle
+\tableofcontents
+
 
 \chapter*{前言}
 《幽梦影》是清代文学家张潮所著的一部随笔集。书中内容涉及广泛，涵盖了文学、艺术、人生哲理等多个方面。
 
-\chapter{正文}
+\include{chapter0}
 
-\begin{yulu}
+\include{chapter1}
 
-读经宜冬，其神专也；读史宜夏，其时久也；读诸子宜秋，其致别也；读诸集宜春，其机畅也。
-
-\begin{comments}
-曹秋岳曰：“可想见其南面百城时。”
-
-庞笔奴曰：“读《幽梦影》则春、夏、秋、冬，无时不宜。”
-\end{comments}
-\end{yulu}
-
-\begin{yulu}
-
-经传宜独坐读；史鉴宜与友共读。
-
-\begin{comments}
-孙恺似曰：“深得此中真趣，固难为不知者道。”  
-
-王景州曰：“如无好友，即红友亦可。”
-\end{comments}
-
-\end{yulu}
+\include{chapter-1}
 
 \end{document}
