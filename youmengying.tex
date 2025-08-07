@@ -23,15 +23,19 @@
   ]{geometry}
 
 
+%=========页面设置=========%
+\usepackage{xcolor}
+\usepackage{eso-pic}
+
+% 设置页面背景为淡黄色
+\definecolor{lightyellow}{RGB}{249, 243, 230} % 更柔和的米黄色，类似宣纸
+\AddToShipoutPictureBG{\color{lightyellow}\rule{\paperwidth}{\paperheight}}
+
+
 \usepackage[UTF8, heading=true, scheme=chinese, fontset=none]{ctex}
 \ctexset{fontset=fandol}
 
-
-\usepackage{setspace} % 加载 setspace 宏包，用于设置行间距
-\usepackage{hyperref}
-
 %================字體================%
-
 %  %設置英文字體
 % \setmainfont[Mapping=tex-text]{DejaVu Serif}
 % \setsansfont[Mapping=tex-text]{DejaVu Sans}
@@ -43,7 +47,13 @@
 % % \setCJKsansfont{思源黑体 CN}
 % % \setCJKmonofont{方正楷体简体}
 % \setCJKmainfont{Source Han Serif CN}
+\setCJKmainfont{Noto Serif CJK SC} % 思源宋体旧名
 
+
+
+
+\usepackage{setspace} % 加载 setspace 宏包，用于设置行间距
+\usepackage{hyperref}
 
 \hypersetup{
     colorlinks=true, % 使用彩色链接
@@ -53,15 +63,13 @@
     urlcolor=cyan % 网址链接颜色为青色
 }
 
-% 定义 comment 环境
 \newenvironment{comments}
 {%
-    \hangindent=1em % 设置缩进
-    \leftskip = 1em % 左侧缩进
     \par\vspace{0.3cm} % 段落换行并添加垂直间距
-    \fontsize{11}{12}
+    \setlength{\parindent}{0pt} % 首行缩进 1em ，和常见排版统一逻辑
+    \fontsize{10}{12}\selectfont % 显式激活字体大小，原代码漏了 \selectfont
 }{%
-    \par % 段落换行
+    \par\vspace{0.3cm} % 结束也加间距，让段落区分更清晰（可根据需求调整/删除）
 }
 
 % 定义 yulu 环境
@@ -72,7 +80,7 @@
     \setlength{\parindent}{0pt} % 在 yulu 环境中取消首行缩进
     \setstretch{1.2} % 设置行间距为 1.2 倍
     \ignorespaces % 忽略环境开始处的空格
-    \fontsize{12}{14}
+    \fontsize{12}{14}\selectfont
 }{%
     \par\bigskip % 环境结束后添加较大的垂直间距
 }
